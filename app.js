@@ -14,7 +14,6 @@ const mongoSanitize = require("express-mongo-sanitize");
 const hpp = require("hpp");
 const xss = require("xss-clean");
 const helmet = require("helmet");
-const morgan = require("morgan");
 const AppError = require("./utils/appError");
 const limiter = rateLimt({
   max: 70,
@@ -29,7 +28,7 @@ app.use(express.json({ limit: "7kb" }));
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
-app.use(morgan("dev"));
+
 app.get("/", (req, res) => {
   res.json({
     status: "success",
