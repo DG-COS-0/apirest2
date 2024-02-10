@@ -2,11 +2,11 @@ const express = require("express");
 const dotenv = require("dotenv");
 const app = express();
 const appErrorManager = require("./controllers/errorController");
-const AppError = require("./utils/AppError");
+
 const userRoutes = require("./routes/userRoutes");
 const consRoutes = require("./routes/consRoutes");
 dotenv.config({
-  path: "./var.env",
+  path: "./.env",
 });
 const cors = require("cors");
 const rateLimt = require("express-rate-limit");
@@ -15,6 +15,7 @@ const hpp = require("hpp");
 const xss = require("xss-clean");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const AppError = require("./utils/appError");
 const limiter = rateLimt({
   max: 70,
   windowMs: 60 * 60 * 1000,
