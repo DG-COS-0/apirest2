@@ -32,7 +32,7 @@ app.use(hpp());
 app.get("/", (req, res) => {
   res.json({
     status: "success",
-    message: "Votre application  a bien demarré",
+    message: "Hello World",
   });
 });
 app.use("/api/v1/users", userRoutes);
